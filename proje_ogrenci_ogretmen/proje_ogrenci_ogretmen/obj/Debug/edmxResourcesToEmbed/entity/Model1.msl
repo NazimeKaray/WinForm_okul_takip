@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ogrenci_sinavModelStoreContainer" CdmEntityContainer="ogrenci_sinavEntities">
+    <EntitySetMapping Name="ders">
+      <EntityTypeMapping TypeName="ogrenci_sinavModel.ders">
+        <MappingFragment StoreEntitySet="ders">
+          <ScalarProperty Name="dersID" ColumnName="dersID" />
+          <ScalarProperty Name="ders_adi" ColumnName="ders_adi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ogrenci">
+      <EntityTypeMapping TypeName="ogrenci_sinavModel.ogrenci">
+        <MappingFragment StoreEntitySet="ogrenci">
+          <ScalarProperty Name="ogr_durum" ColumnName="ogr_durum" />
+          <ScalarProperty Name="ogrID" ColumnName="ogrID" />
+          <ScalarProperty Name="ogr_isim" ColumnName="ogr_isim" />
+          <ScalarProperty Name="ogr_soyisim" ColumnName="ogr_soyisim" />
+          <ScalarProperty Name="ogr_no" ColumnName="ogr_no" />
+          <ScalarProperty Name="ogr_sifre" ColumnName="ogr_sifre" />
+          <ScalarProperty Name="ogr_mail" ColumnName="ogr_mail" />
+          <ScalarProperty Name="ogr_sinif" ColumnName="ogr_sinif" />
+          <ScalarProperty Name="ogr_foto" ColumnName="ogr_foto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ogretmen">
+      <EntityTypeMapping TypeName="ogrenci_sinavModel.ogretmen">
+        <MappingFragment StoreEntitySet="ogretmen">
+          <ScalarProperty Name="ogretmenID" ColumnName="ogretmenID" />
+          <ScalarProperty Name="ogretmen_isim" ColumnName="ogretmen_isim" />
+          <ScalarProperty Name="ogretmen_soyisim" ColumnName="ogretmen_soyisim" />
+          <ScalarProperty Name="brans" ColumnName="brans" />
+          <ScalarProperty Name="ogretmen_no" ColumnName="ogretmen_no" />
+          <ScalarProperty Name="ogretmen_sifre" ColumnName="ogretmen_sifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sinif">
+      <EntityTypeMapping TypeName="ogrenci_sinavModel.sinif">
+        <MappingFragment StoreEntitySet="sinif">
+          <ScalarProperty Name="sinifID" ColumnName="sinifID" />
+          <ScalarProperty Name="sinif_adi" ColumnName="sinif_adi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notlar">
+      <EntityTypeMapping TypeName="ogrenci_sinavModel.notlar">
+        <MappingFragment StoreEntitySet="notlar">
+          <ScalarProperty Name="donemSonuNotu" ColumnName="donemSonuNotu" />
+          <ScalarProperty Name="ogrenci" ColumnName="ogrenci" />
+          <ScalarProperty Name="ders" ColumnName="ders" />
+          <ScalarProperty Name="proje" ColumnName="proje" />
+          <ScalarProperty Name="sozlu2" ColumnName="sozlu2" />
+          <ScalarProperty Name="sozlu1" ColumnName="sozlu1" />
+          <ScalarProperty Name="sinav2" ColumnName="sinav2" />
+          <ScalarProperty Name="sinav1" ColumnName="sinav1" />
+          <ScalarProperty Name="notID" ColumnName="notID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

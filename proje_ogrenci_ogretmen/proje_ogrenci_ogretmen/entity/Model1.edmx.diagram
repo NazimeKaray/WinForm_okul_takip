@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="93c2336ef5a94eb39c05e2262c2dfe27" Name="Diagram1">
+        <EntityTypeShape EntityType="ogrenci_sinavModel.ders" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ogrenci_sinavModel.ogrenci" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ogrenci_sinavModel.ogretmen" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ogrenci_sinavModel.sinif" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <AssociationConnector Association="ogrenci_sinavModel.FK_ogrenci_sinif" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ogrenci_sinavModel.notlar" Width="1.5" PointX="5.25" PointY="1" />
+        <AssociationConnector Association="ogrenci_sinavModel.FK_notlar_ders" />
+        <AssociationConnector Association="ogrenci_sinavModel.FK_notlar_ogrenci" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

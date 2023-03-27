@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ogrenci_sinavModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ders">
+    <Key>
+      <PropertyRef Name="dersID" />
+    </Key>
+    <Property Name="dersID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ders_adi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="notlar">
+    <Key>
+      <PropertyRef Name="notID" />
+    </Key>
+    <Property Name="notID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sinav1" Type="smallint" />
+    <Property Name="sinav2" Type="smallint" />
+    <Property Name="sozlu1" Type="smallint" />
+    <Property Name="sozlu2" Type="smallint" />
+    <Property Name="proje" Type="smallint" />
+    <Property Name="ders" Type="int" />
+    <Property Name="ogrenci" Type="int" />
+    <Property Name="donemSonuNotu" Type="float" />
+  </EntityType>
+  <EntityType Name="ogrenci">
+    <Key>
+      <PropertyRef Name="ogrID" />
+    </Key>
+    <Property Name="ogrID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ogr_isim" Type="nvarchar" MaxLength="30" />
+    <Property Name="ogr_soyisim" Type="nvarchar" MaxLength="30" />
+    <Property Name="ogr_no" Type="char" MaxLength="4" />
+    <Property Name="ogr_sifre" Type="nvarchar" MaxLength="10" />
+    <Property Name="ogr_mail" Type="nvarchar" MaxLength="50" />
+    <Property Name="ogr_sinif" Type="int" />
+    <Property Name="ogr_foto" Type="nvarchar" MaxLength="100" />
+    <Property Name="ogr_durum" Type="bit" />
+  </EntityType>
+  <EntityType Name="ogretmen">
+    <Key>
+      <PropertyRef Name="ogretmenID" />
+    </Key>
+    <Property Name="ogretmenID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ogretmen_isim" Type="nvarchar" MaxLength="30" />
+    <Property Name="ogretmen_soyisim" Type="nvarchar" MaxLength="30" />
+    <Property Name="brans" Type="nvarchar" MaxLength="20" />
+    <Property Name="ogretmen_no" Type="char" MaxLength="6" />
+    <Property Name="ogretmen_sifre" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="sinif">
+    <Key>
+      <PropertyRef Name="sinifID" />
+    </Key>
+    <Property Name="sinifID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sinif_adi" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK_notlar_ders">
+    <End Role="ders" Type="Self.ders" Multiplicity="0..1" />
+    <End Role="notlar" Type="Self.notlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ders">
+        <PropertyRef Name="dersID" />
+      </Principal>
+      <Dependent Role="notlar">
+        <PropertyRef Name="ders" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_notlar_ogrenci">
+    <End Role="ogrenci" Type="Self.ogrenci" Multiplicity="0..1" />
+    <End Role="notlar" Type="Self.notlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ogrenci">
+        <PropertyRef Name="ogrID" />
+      </Principal>
+      <Dependent Role="notlar">
+        <PropertyRef Name="ogrenci" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ogrenci_sinif">
+    <End Role="sinif" Type="Self.sinif" Multiplicity="0..1" />
+    <End Role="ogrenci" Type="Self.ogrenci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sinif">
+        <PropertyRef Name="sinifID" />
+      </Principal>
+      <Dependent Role="ogrenci">
+        <PropertyRef Name="ogr_sinif" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ogrenci_sinavModelStoreContainer">
+    <EntitySet Name="ders" EntityType="Self.ders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="notlar" EntityType="Self.notlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ogrenci" EntityType="Self.ogrenci" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ogretmen" EntityType="Self.ogretmen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sinif" EntityType="Self.sinif" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_notlar_ders" Association="Self.FK_notlar_ders">
+      <End Role="ders" EntitySet="ders" />
+      <End Role="notlar" EntitySet="notlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_notlar_ogrenci" Association="Self.FK_notlar_ogrenci">
+      <End Role="ogrenci" EntitySet="ogrenci" />
+      <End Role="notlar" EntitySet="notlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ogrenci_sinif" Association="Self.FK_ogrenci_sinif">
+      <End Role="sinif" EntitySet="sinif" />
+      <End Role="ogrenci" EntitySet="ogrenci" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
